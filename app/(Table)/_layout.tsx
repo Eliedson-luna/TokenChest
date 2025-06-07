@@ -1,7 +1,7 @@
+import { useColorScheme } from '@/hooks/useColorScheme';
+import { Colors } from '@/constants/Colors';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -18,13 +18,7 @@ export default function TabLayout() {
           }
         }}>
         <Tabs.Screen
-          name="index"
-          options={{
-            href: null
-          }}
-        />
-        <Tabs.Screen
-          name="Form/index"
+          name="Chest/index"
           options={{
             href: null
           }}

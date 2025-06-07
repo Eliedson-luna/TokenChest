@@ -3,15 +3,16 @@ import ThemedContainer from '@/components/ThemedContainer';
 import { StyleSheet } from 'react-native';
 import { memo } from 'react';
 import ThemedButton from '@/components/ThemedButton';
+import { RelativePathString } from 'expo-router';
 
 type LinkElement = {
-  link: string;
+  link: RelativePathString;
   label: string;
 };
 
 const linkElements: LinkElement[] = [
-  { link: "/(tabs)/Form", label: "Guarde uma nova senha em seu baú!" },
-  { link: "/(tabs)/Form", label: "Olhar baú de senhas" }
+  { link: "./(tabs)/Form/", label: "Guarde uma nova senha!" },
+  { link: "./(Table)/Chest/", label: "Baú de senhas" }
 ]
 
 type ButtonsProps = {

@@ -13,11 +13,12 @@ export default function ThemedInput({ ...rest }: TextInputProps) {
 
 const styles = StyleSheet.create({
     input: {
+        flexGrow: 1,
         borderRadius: 5,
         marginVertical: 10,
         paddingVertical: 10,
         paddingHorizontal: 8,
         backgroundColor: '#a1a1a1',
-        color: 'yellow'
+        color: '#2f2f2f'
     }
 })
