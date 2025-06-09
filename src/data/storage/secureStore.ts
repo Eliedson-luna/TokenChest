@@ -33,9 +33,14 @@ export class SecureStr {
 
     saveInfo = async () => {
         try {
-            const storedInfo = await this.loadSecureStoreInfo();
-            storedInfo.push(this.register)
-            await this.saveSecureStore(storedInfo);
+            if (this.register) {
+                const storedInfo: SecureStrTp = await this.loadSecureStoreInfo();
+                this.register?.id == await storedInfo.length + 1;
+                storedInfo.push(this.register)
+                await this.saveSecureStore(storedInfo);
+            } else {
+                throw Error('Falha ao instanciar objeto Password.register')
+            }
         } catch (error) {
             if (error instanceof Error) {
                 throw new Error(error.message)
@@ -44,11 +49,15 @@ export class SecureStr {
             }
         }
     };
+    deleteInfo = async () => {
+
+    }
+
 }
 
 
 export class SecurePassword {
-
+    private id?: number;
     private info: string;
     private user: string;
     private passwd: string;
@@ -67,7 +76,7 @@ export class SecurePassword {
     }
 
     register(): SecurePasswdTp {
-        const register: SecurePasswdTp = { info: this.info, user: this.user, passwd: this.passwd }
+        const register: SecurePasswdTp = { id: this.id, info: this.info, user: this.user, passwd: this.passwd }
         return register
     }
 

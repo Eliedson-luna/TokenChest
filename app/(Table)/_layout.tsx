@@ -23,6 +23,12 @@ export default function TabLayout() {
             href: null
           }}
         />
+        <Tabs.Screen
+          name="Chest/itemOptions"
+          options={{
+            href: null
+          }}
+        />
       </Tabs>
     </>
   );

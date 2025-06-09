@@ -38,7 +38,6 @@ export default function TokenList() {
                         <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                             <ThemedText type="title">{item.info}</ThemedText>
                             <Entypo
-
                                 onPress={() => {
 
                                 }}
