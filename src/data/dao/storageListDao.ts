@@ -13,3 +13,17 @@ export async function loadListInfo() {
         }
     }
 }
+
+export async function deleteItemInfo(itemId: number) {
+    try {
+        const secureStr = new SecureStr();
+        secureStr.deleteItem(itemId);
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(error.message)
+        }
+        else {
+            throw new Error('Erro desconhecido ao excluir item da lista')
+        }
+    }
+}

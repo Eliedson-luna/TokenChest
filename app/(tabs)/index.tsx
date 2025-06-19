@@ -2,8 +2,8 @@ import { ThemedText } from '@/components/ThemedText';
 import ThemedContainer from '@/components/ThemedContainer';
 import { StyleSheet } from 'react-native';
 import { memo } from 'react';
-import ThemedButton from '@/components/ThemedButton';
 import { RelativePathString } from 'expo-router';
+import ThemedNavigator from '@/components/ThemedNavigator';
 
 type LinkElement = {
   link: RelativePathString;
@@ -23,7 +23,7 @@ const Buttons = ({ linkElements }: ButtonsProps) => {
   return (
     <>
       {linkElements.map((element, index) => (
-        <ThemedButton link={element.link} key={index} text={element.label} />
+        <ThemedNavigator link={element.link} key={index} text={element.label} />
       ))}
     </>
   )

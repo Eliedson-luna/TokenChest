@@ -5,10 +5,10 @@ import Formulary from "./form";
 
 export default function NewTokenFormulary() {
     return (
-        <ThemedContainer type="defaut" style={styles.container} backgroundColor="#222">
-            <ThemedContainer type="subContainer">
-                <ThemedText type="title">
-                    Você está guardando uma nova senha
+        <ThemedContainer type="default" style={styles.container} backgroundColor="#222">
+            <ThemedContainer style={{ elevation: 5, borderRadius: 10 }} backgroundColor='#4e4d4d' type="suContainer">
+                <ThemedText type="title" style={{ color: "#c2c2c2", marginTop: 10, textAlign: 'center' }}>
+                    Nova senha
                 </ThemedText>
                 <ThemedContainer type="subContainer">
                     <Formulary />

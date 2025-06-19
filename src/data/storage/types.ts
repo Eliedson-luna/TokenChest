@@ -1,4 +1,4 @@
-export type SecurePasswdTp = {
+export type SecurePasswdTp = Object & {
     id?: number,
     info: string,
     user: string,

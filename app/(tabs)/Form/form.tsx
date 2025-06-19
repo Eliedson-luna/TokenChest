@@ -1,3 +1,5 @@
+import PasswordInput from "@/components/PasswordInput";
+import ThemedButton from "@/components/ThemedButton";
 import ThemedContainer from "@/components/ThemedContainer";
 import ThemedInput from "@/components/ThemedInput";
 import { ThemedText } from "@/components/ThemedText";
@@ -33,24 +35,9 @@ export default function Formulary() {
         <ThemedContainer type="subContainer">
             <ThemedInput placeholder="Descrição" onChangeText={(text) => setInfo(text)} value={info} />
             <ThemedInput placeholder="usuário" onChangeText={(text) => setUser(text.trim())} value={user} />
-            <ThemedInput placeholder="senha" secureTextEntry={true} onChangeText={(text) => setPasswd(text.trim())} value={passwd} />
+            <PasswordInput placeholder="senha" onChangeText={(text) => setPasswd(text.trim())} value={passwd} />
             <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity
-                    onPress={save}
-                    style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: '50%',
-                        backgroundColor: '#53520170',
-                        borderRadius: 5,
-                        elevation: 2
-                    }}>
-                    <ThemedText type='link'
-                        style={{
-                            padding: 10,
-                        }
-                        }>Armazenar</ThemedText>
-                </TouchableOpacity>
+                <ThemedButton onPress={save} text="Guardar" />
             </View>
         </ThemedContainer>
     )

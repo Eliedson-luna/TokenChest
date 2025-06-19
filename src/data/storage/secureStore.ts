@@ -35,7 +35,7 @@ export class SecureStr {
         try {
             if (this.register) {
                 const storedInfo: SecureStrTp = await this.loadSecureStoreInfo();
-                this.register?.id == await storedInfo.length + 1;
+                this.register.id = storedInfo.length + 1;
                 storedInfo.push(this.register)
                 await this.saveSecureStore(storedInfo);
             } else {
@@ -45,19 +45,28 @@ export class SecureStr {
             if (error instanceof Error) {
                 throw new Error(error.message)
             } else {
-                throw new Error("Erro desconhecido ao guardar")
+                throw new Error("Erro desconhecido ao guardar na lista")
             }
         }
     };
-    deleteInfo = async () => {
-
+    deleteItem = async (itemId: number) => {
+        try {
+            const storedInfo: SecureStrTp = await this.loadSecureStoreInfo();
+            const filteredList = storedInfo.filter((item) => item.id !== itemId);
+            await this.saveSecureStore(filteredList);
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(error.message)
+            } else {
+                throw new Error("Erro desconhecido ao deletar da lista")
+            }
+        }
     }
 
 }
 
 
 export class SecurePassword {
-    private id?: number;
     private info: string;
     private user: string;
     private passwd: string;
@@ -76,7 +85,7 @@ export class SecurePassword {
     }
 
     register(): SecurePasswdTp {
-        const register: SecurePasswdTp = { id: this.id, info: this.info, user: this.user, passwd: this.passwd }
+        const register: SecurePasswdTp = { info: this.info, user: this.user, passwd: this.passwd }
         return register
     }
 

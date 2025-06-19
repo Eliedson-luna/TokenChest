@@ -15,7 +15,6 @@ export default function PasswordInput({ value, ...rest }: PasswordInputProps) {
             <ThemedInput
                 value={value}
                 secureTextEntry={isHidden}
-                readOnly={true}
                 style={styles.input}
                 {...rest}
             />

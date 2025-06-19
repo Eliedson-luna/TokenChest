@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 8,
         backgroundColor: '#a1a1a1',
-        color: '#2f2f2f'
+        color: '#2f2f2f',
+        elevation: 5
     }
 })

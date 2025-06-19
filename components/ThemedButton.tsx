@@ -1,33 +1,31 @@
-import { Pressable, PressableProps, StyleProp, ViewStyle } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { ThemedText } from "./ThemedText";
-import { Link, RelativePathString, useRouter } from "expo-router";
-import ThemedContainer from "./ThemedContainer";
 
-type ThemedButtonProps = PressableProps & {
-    text?: string,
-    link: RelativePathString
+type ThemedButtonProps = TouchableOpacityProps & {
+    text: string
 }
 
-export default function ThemedButton({ link, text = '', ...rest }: ThemedButtonProps) {
-
-    const nav = useRouter()
-
+export default function ThemedButton({ text, ...rest }: ThemedButtonProps) {
     return (
-        <Pressable
-            onPress={() => nav.navigate(link)}
-            style={({ pressed }) => {
-                const baseStyle: StyleProp<ViewStyle> = {
-                    backgroundColor: pressed ? "#0000009d" : "#1515159d",
-                    transform: [{ scale: pressed ? 0.98 : 1 }],
-                };
-                return [baseStyle, { borderRadius: 5, margin: 10, padding: 20 }];
+        <TouchableOpacity
+            style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '50%',
+                backgroundColor: '#2c2c2c',
+                borderWidth: 1,
+                borderColor: '#525252',
+                borderRadius: 5,
+                elevation: 5
             }}
             {...rest}
         >
-            <ThemedText type="link">
-                {text}
-            </ThemedText>
-        </Pressable>
+            <ThemedText type='defaultSemiBold'
+                style={{
+                    padding: 10,
+                    color: '#fff'
+                }
+                }>{text}</ThemedText>
+        </TouchableOpacity>
     )
 }
-
